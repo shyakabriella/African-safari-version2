@@ -1,0 +1,143 @@
+.header {
+  background: #252d2a;
+  color: #f8f5ee;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.inner {
+  max-width: 1500px;
+  min-height: 58px;
+  padding: 9px 34px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.preferences,
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.globe {
+  color: #d4a46a;
+  font-size: 19px;
+}
+
+.separator {
+  color: #8e9992;
+}
+
+.search {
+  flex: 1;
+  max-width: 410px;
+  min-height: 37px;
+  border-radius: 30px;
+  background: #f8f6f0;
+  color: #78817d;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 18px;
+  font-size: 13px;
+}
+
+.search span:first-child {
+  color: #173c36;
+  font-size: 25px;
+  line-height: 1;
+}
+
+.actions a {
+  color: inherit;
+  text-decoration: none;
+  transition: color .2s;
+}
+
+.actions a:hover {
+  color: #e9bd81;
+}
+
+.actions .cta {
+  background: #bd8645;
+  color: white;
+  border-radius: 30px;
+  padding: 11px 19px;
+  font-weight: 600;
+}
+
+.actions .cta:hover {
+  background: #d39a56;
+  color: white;
+}
+
+@media (max-width: 1100px) {
+  .search {
+    display: none;
+  }
+}
+
+@media (max-width: 650px) {
+  .inner {
+    min-height: 48px;
+    padding: 8px 16px;
+    gap: 8px;
+  }
+
+  .preferences {
+    gap: 9px;
+    font-size: 11px;
+  }
+
+  .preferences span:nth-child(2),
+  .preferences span:nth-child(3) {
+    display: none;
+  }
+
+  .actions {
+    gap: 10px;
+    font-size: 11px;
+  }
+
+  .actions a:first-child {
+    display: none;
+  }
+
+  .actions .cta {
+    padding: 9px 11px;
+  }
+}
+
+@media (max-width: 370px) {
+  .actions a:nth-child(2) {
+    display: none;
+  }
+}
+
+
+/* AFHBH official icon in top header */
+.globe {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.globeImage {
+  display: block;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+@media (max-width: 650px) {
+  .globeImage {
+    width: 21px;
+    height: 21px;
+  }
+}

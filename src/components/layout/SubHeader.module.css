@@ -1,0 +1,212 @@
+.header {
+  position: relative;
+  z-index: 30;
+  background: #faf8f3;
+  border-bottom: 1px solid #eae6dd;
+}
+
+.inner {
+  max-width: 1500px;
+  min-height: 84px;
+  margin: 0 auto;
+  padding: 0 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  text-decoration: none;
+  color: #173c36;
+}
+
+.mark {
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #173c36;
+  color: white;
+  font-size: 28px;
+  font-family: Georgia, serif;
+  position: relative;
+}
+
+.mark span {
+  position: absolute;
+  font-size: 10px;
+  color: #dcac6d;
+  right: 6px;
+  top: 6px;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logoText strong {
+  font-family: Georgia, serif;
+  font-size: 26px;
+  letter-spacing: -.05em;
+}
+
+.logoText small {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  color: #9d7549;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(13px, 2vw, 35px);
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 550;
+  color: #35443d;
+  white-space: nowrap;
+  transition: color .2s;
+}
+
+.nav a:hover {
+  color: #bc8548;
+}
+
+.mobileToggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: #173c36;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  .inner {
+    padding: 0 20px;
+    min-height: 75px;
+  }
+
+  .mobileToggle {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: #faf8f3;
+    border-bottom: 1px solid #eae6dd;
+    box-shadow: 0 15px 25px rgba(0,0,0,.08);
+    padding: 12px 20px 20px;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .nav a {
+    padding: 15px 8px;
+    border-bottom: 1px solid #ede9e0;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 500px) {
+  .logoText strong {
+    font-size: 23px;
+  }
+}
+
+
+/* AFHBH official brand logo */
+.logoImage {
+  display: block;
+  width: auto;
+  height: 64px;
+  max-width: 245px;
+  object-fit: contain;
+}
+
+@media (max-width: 1000px) {
+  .logoImage {
+    height: 56px;
+    max-width: 210px;
+  }
+}
+
+@media (max-width: 500px) {
+  .logoImage {
+    height: 48px;
+    max-width: 185px;
+  }
+}
+
+
+
+/* AFHBH STEP 93: STICKY NAVIGATION */
+
+/*
+ * The dark utility header scrolls normally.
+ * This navigation stays at the top once reached.
+ */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #faf8f3;
+  box-shadow: 0 5px 24px rgba(18, 35, 27, .09);
+}
+
+/* Improve menu visibility when scrolling */
+.nav a {
+  transition: color .25s ease;
+}
+
+.logoImage {
+  transition: transform .3s ease;
+}
+
+.logo:hover .logoImage {
+  transform: scale(1.025);
+}
+
+/* Avoid changing mobile navigation behavior */
+@media (max-width: 1000px) {
+  .header {
+    z-index: 100;
+  }
+}
+
+/* Accessible keyboard navigation */
+.nav a:focus-visible,
+.logo:focus-visible,
+.mobileToggle:focus-visible {
+  outline: 2px solid #c58e45;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logoImage,
+  .nav a {
+    transition: none;
+  }
+}

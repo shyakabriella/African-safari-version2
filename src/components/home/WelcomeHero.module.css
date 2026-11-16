@@ -1,0 +1,409 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: 760px;
+  min-height: min(820px, 90svh);
+  overflow: hidden;
+  background: #263a32;
+  color: #fff;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background-image:
+    url("https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=2200&q=85");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: heroReveal 1.7s ease-out both;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(12, 28, 24, .76) 0%,
+      rgba(12, 28, 24, .36) 55%,
+      rgba(12, 28, 24, .06) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(12, 28, 24, .43) 0%,
+      transparent 42%
+    );
+}
+
+.container {
+  width: min(calc(100% - 72px), 1400px);
+  margin: 0 auto;
+  padding: 100px 0 130px;
+}
+
+.content {
+  max-width: 1050px;
+  animation: fadeUp 1s ease-out both;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  color: #f0cc93;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .22em;
+}
+
+.line {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: #e1ac67;
+}
+
+.title {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(52px, 6.2vw, 104px);
+  font-weight: 400;
+  letter-spacing: -.045em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.title span {
+  display: block;
+  color: #f2e0bf;
+  font-style: italic;
+}
+
+.description {
+  max-width: 560px;
+  margin-top: 31px;
+  color: rgba(255,255,255,.87);
+  font-size: clamp(15px, 1.15vw, 19px);
+  line-height: 1.85;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  margin-top: 38px;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  min-height: 58px;
+  padding: 0 30px;
+  font-size: 14px;
+  font-weight: 650;
+  text-decoration: none;
+  transition: background .25s, transform .25s;
+}
+
+.primary {
+  border-radius: 5px;
+  background: #c58e45;
+  color: #fff;
+}
+
+.primary:hover {
+  background: #ae7738;
+  transform: translateY(-3px);
+}
+
+.secondary {
+  border-bottom: 1px solid rgba(255,255,255,.65);
+  color: #fff;
+}
+
+.secondary:hover {
+  transform: translateY(-3px);
+}
+
+.bottom {
+  position: absolute;
+  right: max(36px, calc((100% - 1400px) / 2));
+  bottom: 38px;
+  left: max(36px, calc((100% - 1400px) / 2));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.caption,
+.scroll {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255,255,255,.85);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: .18em;
+  text-decoration: none;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #dbab69;
+}
+
+.scroll span {
+  font-size: 22px;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroReveal {
+  from {
+    opacity: .55;
+    transform: scale(1.06);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 720px;
+    min-height: 85svh;
+  }
+
+  .background {
+    background-position: 58% center;
+  }
+
+  .overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(12,28,24,.82),
+      rgba(12,28,24,.38)
+    );
+  }
+
+  .container {
+    width: calc(100% - 40px);
+    padding: 95px 0 105px;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: .14em;
+  }
+
+  .title {
+    font-size: clamp(43px, 10vw, 72px);
+  }
+
+  .description {
+    margin-top: 24px;
+    line-height: 1.7;
+  }
+
+  .actions {
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  .primary,
+  .secondary {
+    min-height: 52px;
+    padding: 0 22px;
+  }
+
+  .bottom {
+    right: 20px;
+    bottom: 25px;
+    left: 20px;
+  }
+
+  .caption {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .background,
+  .content {
+    animation: none;
+  }
+
+  .primary,
+  .secondary {
+    transition: none;
+  }
+}
+
+
+/* AFHBH cinematic welcome video */
+.video {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  background: #173c36;
+}
+
+@media (max-width: 768px) {
+  .video {
+    object-position: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video {
+    display: none;
+  }
+
+  .hero {
+    background-image:
+      linear-gradient(
+        90deg,
+        rgba(12, 28, 24, .76),
+        rgba(12, 28, 24, .35)
+      ),
+      url("/images/afhbh-hero-poster.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+
+
+/* AFHBH STEP 93: CINEMATIC HERO ANIMATIONS */
+
+/* Reveal the video with a gentle cinematic zoom */
+.video {
+  animation: afhbhVideoReveal 2.2s ease-out both;
+  transform-origin: center center;
+  will-change: auto;
+}
+
+/* Animate individual content elements in sequence */
+.content {
+  animation: none;
+}
+
+.eyebrow {
+  animation: afhbhFadeUp .8s ease-out .12s both;
+}
+
+.title {
+  animation: afhbhFadeUp 1.05s
+    cubic-bezier(.22, 1, .36, 1) .28s both;
+}
+
+.description {
+  animation: afhbhFadeUp .95s ease-out .65s both;
+}
+
+.actions {
+  animation: afhbhFadeUp .9s ease-out .9s both;
+}
+
+.bottom {
+  animation: afhbhFadeIn 1s ease-out 1.35s both;
+}
+
+@keyframes afhbhVideoReveal {
+  from {
+    opacity: .35;
+    transform: scale(1.055);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes afhbhFadeUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 34px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes afhbhFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Preserve accessibility for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .video,
+  .eyebrow,
+  .title,
+  .description,
+  .actions,
+  .bottom {
+    animation: none !important;
+  }
+
+  .eyebrow,
+  .title,
+  .description,
+  .actions,
+  .bottom {
+    opacity: 1;
+    transform: none;
+  }
+
+  .video {
+    display: none;
+  }
+
+  .hero {
+    background-image:
+      linear-gradient(
+        90deg,
+        rgba(12, 28, 24, .76),
+        rgba(12, 28, 24, .35)
+      ),
+      url("/images/afhbh-hero-poster.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+}
