@@ -2,6 +2,7 @@ import SiteLayout from "@/components/layout/SiteLayout";
 import WelcomeHero from "@/components/home/WelcomeHero";
 import InformationBanner from "@/components/home/InformationBanner";
 import AboutSection from "@/components/home/AboutSection";
+import PopularSafariTours from "@/components/home/PopularSafariTours";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <WelcomeHero />
       <InformationBanner />
       <AboutSection />
+      <PopularSafariTours />
 
       <section
         id="discover"
