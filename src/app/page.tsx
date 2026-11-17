@@ -1,10 +1,14 @@
 import SiteLayout from "@/components/layout/SiteLayout";
 import WelcomeHero from "@/components/home/WelcomeHero";
+import InformationBanner from "@/components/home/InformationBanner";
+import AboutSection from "@/components/home/AboutSection";
 
 export default function Home() {
   return (
     <SiteLayout>
       <WelcomeHero />
+      <InformationBanner />
+      <AboutSection />
 
       <section
         id="discover"
