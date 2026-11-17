@@ -84,13 +84,20 @@ export default function LoginForm() {
         return;
       }
 
-      if (verifying) {
+      if (data.success !== true) {
+        setMessage("Unable to authenticate your account.");
+        return;
+      }
+
+      if (verifying || data.requiresOtp === false) {
         setOtp("");
         setPassword("");
         setStage("success");
-      } else {
+      } else if (data.requiresOtp === true) {
         setPassword("");
         setStage("otp");
+      } else {
+        setMessage("Unexpected authentication response.");
       }
     } catch {
       setMessage("Unable to connect. Please try again.");
