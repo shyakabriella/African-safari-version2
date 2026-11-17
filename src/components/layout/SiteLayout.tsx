@@ -1,3 +1,4 @@
+import Footer from "./Footer";
 import type { ReactNode } from "react";
 import MainHeader from "./MainHeader";
 import SubHeader from "./SubHeader";
@@ -12,6 +13,7 @@ export default function SiteLayout({
       <MainHeader />
       <SubHeader />
       <main id="main-content">{children}</main>
+      <Footer />
     </>
   );
 }

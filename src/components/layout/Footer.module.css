@@ -1,0 +1,237 @@
+.footer {
+  position: relative;
+  width: 100%;
+  background: #173c36;
+  color: #ffffff;
+  padding: 65px 4.5% 0;
+  border-top: 4px solid #bf7847;
+}
+
+.container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: clamp(25px, 4vw, 70px);
+  align-items: start;
+  padding-bottom: 55px;
+}
+
+.brandColumn,
+.column {
+  min-width: 0;
+}
+
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+}
+
+.logo {
+  display: block;
+  width: 200px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.description {
+  max-width: 360px;
+  font-size: 14px;
+  line-height: 1.95;
+  color: #c4d2cb;
+}
+
+.brandMessage {
+  margin-top: 24px;
+  color: #d5b889;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+.column h2 {
+  position: relative;
+  margin: 9px 0 27px;
+  padding-bottom: 13px;
+  color: #ffffff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.column h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 32px;
+  height: 2px;
+  background: #bf7847;
+}
+
+.column nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.column nav a {
+  display: inline-block;
+  color: #c4d2cb;
+  font-size: 14px;
+  line-height: 1.6;
+  text-decoration: none;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.column nav a:hover {
+  color: #e1c29b;
+  transform: translateX(5px);
+}
+
+.message {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+.smallTitle {
+  color: #d5b889;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+}
+
+.message p {
+  margin-top: 10px;
+  font-family: Georgia, serif;
+  color: #ffffff;
+  font-size: 24px;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  min-height: 74px;
+  padding: 22px 0;
+  border-top: 1px solid rgba(255,255,255,0.18);
+}
+
+.bottom p,
+.bottomLink {
+  color: #c4d2cb;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.bottomLink {
+  text-decoration: none;
+  color: #d5b889;
+  transition: color 0.25s ease;
+}
+
+.bottomLink:hover {
+  color: #ffffff;
+}
+
+.footer a:focus-visible {
+  outline: 2px solid #d5b889;
+  outline-offset: 5px;
+}
+
+/* Tablet */
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 45px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 38px 20px 0;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 18px;
+    row-gap: 30px;
+    padding-bottom: 30px;
+  }
+
+  .brandColumn {
+    grid-column: span 2;
+  }
+
+  .column:last-child {
+    grid-column: span 2;
+  }
+
+  .logo {
+    width: 185px;
+  }
+
+  .description {
+    max-width: 100%;
+    font-size: 13px;
+  }
+
+  .brandMessage {
+    margin-top: 15px;
+    font-size: 18px;
+  }
+
+  .column h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .column nav {
+    gap: 12px;
+  }
+
+  .column nav a {
+    font-size: 13px;
+  }
+
+  .bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    padding: 23px 0;
+  }
+
+  .bottom p,
+  .bottomLink {
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer a {
+    transition: none;
+  }
+
+  .column nav a:hover {
+    transform: none;
+  }
+}

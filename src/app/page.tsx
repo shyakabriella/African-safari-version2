@@ -4,6 +4,8 @@ import InformationBanner from "@/components/home/InformationBanner";
 import AboutSection from "@/components/home/AboutSection";
 import PopularSafariTours from "@/components/home/PopularSafariTours";
 import TopTourOperators from "@/components/home/TopTourOperators";
+import DestinationGallery from "@/components/home/DestinationGallery";
+import BlogPosts from "@/components/home/BlogPosts";
 
 export default function Home() {
   return (
@@ -13,6 +15,8 @@ export default function Home() {
       <AboutSection />
       <PopularSafariTours />
       <TopTourOperators />
+      <DestinationGallery />
+      <BlogPosts />
 
       <section
         id="discover"
