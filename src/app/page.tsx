@@ -3,6 +3,7 @@ import WelcomeHero from "@/components/home/WelcomeHero";
 import InformationBanner from "@/components/home/InformationBanner";
 import AboutSection from "@/components/home/AboutSection";
 import PopularSafariTours from "@/components/home/PopularSafariTours";
+import TopTourOperators from "@/components/home/TopTourOperators";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <InformationBanner />
       <AboutSection />
       <PopularSafariTours />
+      <TopTourOperators />
 
       <section
         id="discover"
