@@ -92,7 +92,7 @@ export default function LoginForm() {
       if (verifying || data.requiresOtp === false) {
         setOtp("");
         setPassword("");
-        setStage("success");
+        window.location.replace("/dashboard");
       } else if (data.requiresOtp === true) {
         setPassword("");
         setStage("otp");
