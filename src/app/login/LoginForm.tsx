@@ -140,9 +140,7 @@ export default function LoginForm() {
             <button
               type="button"
               className={styles.outlineButton}
-              onClick={() => setMessage(
-                "Account registration will be available soon."
-              )}
+              onClick={() => window.location.assign("/register")}
               disabled={loading}
             >
               Create Account
@@ -344,9 +342,7 @@ export default function LoginForm() {
                     <button
                       type="button"
                       disabled={loading}
-                      onClick={() => setMessage(
-                        "Account registration will be available soon."
-                      )}
+                      onClick={() => window.location.assign("/register")}
                     >
                       Create account
                     </button>

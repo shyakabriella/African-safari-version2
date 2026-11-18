@@ -32,7 +32,7 @@ export function sameOrigin(request: NextRequest) {
 }
 
 export async function backendAuth(
-  endpoint: "login" | "login/verify-otp",
+  endpoint: "login" | "login/verify-otp" | "register",
   payload: Record<string, string>
 ) {
   return fetch(`${API}/${endpoint}`, {
