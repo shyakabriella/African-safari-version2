@@ -295,3 +295,22 @@
     flex: 1;
   }
 }
+
+.securityLink {
+  display: inline-block;
+  padding: 9px 15px;
+  border: 1px solid #dce4df;
+  border-radius: 4px;
+  color: #173c36;
+  background: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.securityLink:hover {
+  background: #e8f0eb;
+  border-color: #173c36;
+}

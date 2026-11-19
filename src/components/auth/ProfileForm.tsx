@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import {
   useState,
   type FormEvent,
@@ -346,9 +348,12 @@ export default function ProfileForm({
               <small>Update your account password.</small>
             </span>
 
-            <span className={styles.pending}>
-              Coming next
-            </span>
+            <Link
+              href="/dashboard/profile/change-password"
+              className={styles.securityLink}
+            >
+              Change Password
+            </Link>
           </div>
 
           <div>
