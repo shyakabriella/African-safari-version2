@@ -130,7 +130,8 @@ export default function DashboardSidebar({
 
               if (
                 item.href !== "/dashboard" &&
-                item.href !== "/dashboard/profile"
+                item.href !== "/dashboard/profile" &&
+                item.href !== "/dashboard/users"
               ) {
                 return (
                   <span
