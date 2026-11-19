@@ -58,6 +58,7 @@ const groups = [
     title: "Workspace",
     items: [
       { name: "Dashboard", icon: "dashboard", href: "/dashboard" },
+      { name: "My Profile", icon: "users", href: "/dashboard/profile" },
       { name: "Users", icon: "users", href: "/dashboard/users" },
       { name: "Tour Operators", icon: "users", href: "/dashboard/operators" },
       { name: "Verification", icon: "shield", href: "/dashboard/verification" },
@@ -127,7 +128,10 @@ export default function DashboardSidebar({
             {group.items.map(item => {
               const active = pathname === item.href;
 
-              if (item.href !== "/dashboard") {
+              if (
+                item.href !== "/dashboard" &&
+                item.href !== "/dashboard/profile"
+              ) {
                 return (
                   <span
                     key={item.href}

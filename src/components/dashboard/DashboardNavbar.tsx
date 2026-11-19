@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import {
   DashboardIcon,
   initials,
@@ -52,7 +54,12 @@ export default function DashboardNavbar({
           <DashboardIcon name="bell" />
         </button>
 
-        <div className={styles.profile}>
+        <Link
+          href="/dashboard/profile"
+          className={styles.profile}
+          aria-label="Open my profile"
+          style={{ textDecoration: "none" }}
+        >
           <span className={styles.avatar}>
             {initials(user.name)}
           </span>
@@ -61,7 +68,7 @@ export default function DashboardNavbar({
             <strong>{user.name}</strong>
             <small>Administrator</small>
           </div>
-        </div>
+        </Link>
       </div>
     </header>
   );
