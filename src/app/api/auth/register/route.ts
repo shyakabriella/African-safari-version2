@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
 
   if (
     !payload.email ||
-    payload.email.length > 255 ||
+    payload.email.length > 190 ||
     !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)
   ) {
     errors.email = ["Please enter a valid email address."];

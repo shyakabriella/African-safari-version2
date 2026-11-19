@@ -140,7 +140,7 @@ export default function RegisterForm() {
       type: "email",
       placeholder: "Enter your email address",
       autoComplete: "email",
-      maxLength: 255,
+      maxLength: 190,
     },
     {
       key: "phone",

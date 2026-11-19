@@ -255,9 +255,7 @@ export default function LoginForm() {
                         type="button"
                         className={styles.forgot}
                         disabled={loading}
-                        onClick={() => setMessage(
-                          "Password recovery will be available soon."
-                        )}
+                        onClick={() => window.location.assign("/forgot-password")}
                       >
                         Forgot password?
                       </button>
