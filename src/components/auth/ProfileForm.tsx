@@ -3,6 +3,10 @@
 import Link from "next/link";
 
 import {
+  accountRoutesForRole,
+} from "@/lib/auth/account-routes";
+
+import {
   useState,
   type FormEvent,
 } from "react";
@@ -349,7 +353,7 @@ export default function ProfileForm({
             </span>
 
             <Link
-              href="/dashboard/profile/change-password"
+              href={accountRoutesForRole(profile.role).changePassword}
               className={styles.securityLink}
             >
               Change Password
@@ -363,7 +367,7 @@ export default function ProfileForm({
             </span>
 
             <Link
-              href="/dashboard/profile/sessions"
+              href={accountRoutesForRole(profile.role).sessions}
               className={styles.securityLink}
             >
               Manage Sessions

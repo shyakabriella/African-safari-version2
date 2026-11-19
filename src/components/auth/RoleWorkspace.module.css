@@ -1,0 +1,283 @@
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f7f5;
+  color: #173c36;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 18px 5%;
+  background: #fff;
+  border-bottom: 1px solid #e2e8e4;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #173c36;
+  text-decoration: none;
+}
+
+.brand strong,
+.identity strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.brand small,
+.identity small {
+  display: block;
+  margin-top: 4px;
+  color: #64796e;
+  font-size: 11px;
+}
+
+.userArea {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.identity {
+  overflow-wrap: anywhere;
+}
+
+.logout {
+  padding: 10px 18px;
+  border-radius: 5px;
+  border: 1px solid #dce4df;
+  background: #fff;
+  color: #a32e25;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  flex: 1;
+}
+
+.welcome {
+  padding: 30px;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  background: #173c36;
+  color: #fff;
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 1.8px;
+  font-weight: 700;
+  color: #bd8645;
+}
+
+.welcome h1,
+.noticeCard h1 {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 700;
+  margin: 12px 0;
+}
+
+.welcome p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #e0e9e3;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+.card,
+.noticeCard {
+  background: #fff;
+  border: 1px solid #e2e8e4;
+  border-radius: 7px;
+  padding: 24px;
+  min-width: 0;
+}
+
+.card h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.card p,
+.noticeCard p {
+  font-size: 13px;
+  color: #64796e;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.details > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-bottom: 1px solid #edf0ed;
+  padding-bottom: 15px;
+}
+
+.details > div:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.details dt {
+  font-size: 11px;
+  color: #64796e;
+}
+
+.details dd {
+  font-size: 14px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.active {
+  color: #268366;
+}
+
+.primary,
+.secondary {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 18px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.primary {
+  background: #173c36;
+  color: #fff;
+}
+
+.secondary {
+  background: #fff;
+  color: #173c36;
+  border: 1px solid #dce4df;
+}
+
+.footer {
+  padding: 20px;
+  text-align: center;
+  font-size: 11px;
+  color: #64796e;
+}
+
+.noticePage {
+  min-height: 80vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #f5f7f5;
+  color: #173c36;
+}
+
+.noticeCard {
+  max-width: 500px;
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .header {
+    padding: 16px;
+  }
+
+  .content {
+    padding: 24px 16px;
+  }
+
+  .welcome,
+  .card {
+    padding: 20px;
+  }
+
+  .userArea {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.accountNavigation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 24px;
+  background: #fff;
+  padding: 14px 5%;
+  border-bottom: 1px solid #e2e8e4;
+}
+
+.accountNavigation a {
+  font-size: 13px;
+  font-weight: 600;
+  color: #173c36;
+  text-decoration: none;
+  padding: 8px 0;
+}
+
+.accountNavigation a:hover {
+  color: #a87335;
+}
+
+.accountNavigation a:focus-visible {
+  outline: 2px solid #bd8645;
+  outline-offset: 4px;
+}
+
+.accountLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+@media (max-width: 700px) {
+  .accountNavigation {
+    padding: 12px 16px;
+    gap: 8px 18px;
+  }
+
+  .accountLinks {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+}

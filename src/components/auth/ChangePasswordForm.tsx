@@ -9,7 +9,11 @@ import {
 
 import styles from "./ChangePassword.module.css";
 
-export default function ChangePasswordForm() {
+export default function ChangePasswordForm({
+  profileHref = "/dashboard/profile",
+}: {
+  profileHref?: string;
+}) {
   const [current, setCurrent] = useState("");
   const [password, setPassword] = useState("");
   const [confirmation, setConfirmation] = useState("");
@@ -131,7 +135,7 @@ export default function ChangePasswordForm() {
     <div className={styles.page}>
 
       <Link
-        href="/dashboard/profile"
+        href={profileHref}
         className={styles.back}
       >
         ← Back to My Profile
@@ -263,7 +267,7 @@ export default function ChangePasswordForm() {
             <div className={styles.actions}>
 
               <Link
-                href="/dashboard/profile"
+                href={profileHref}
                 className={styles.cancel}
               >
                 Cancel

@@ -55,7 +55,11 @@ function formatDate(value: string | number | null) {
   }).format(date);
 }
 
-export default function SessionsForm() {
+export default function SessionsForm({
+  profileHref = "/dashboard/profile",
+}: {
+  profileHref?: string;
+}) {
   const [sessions, setSessions] =
     useState<AccountSession[]>([]);
 
@@ -253,7 +257,7 @@ export default function SessionsForm() {
     <div className={profile.page}>
 
       <Link
-        href="/dashboard/profile"
+        href={profileHref}
         className={styles.back}
       >
         ← Back to My Profile
