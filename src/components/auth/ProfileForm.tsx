@@ -359,12 +359,15 @@ export default function ProfileForm({
           <div>
             <span>
               <strong>Active Sessions</strong>
-              <small>Manage your signed-in devices.</small>
+              <small>Manage sessions or sign out everywhere.</small>
             </span>
 
-            <span className={styles.pending}>
-              Coming next
-            </span>
+            <Link
+              href="/dashboard/profile/sessions"
+              className={styles.securityLink}
+            >
+              Manage Sessions
+            </Link>
           </div>
 
         </div>
