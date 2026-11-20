@@ -1,0 +1,292 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+  color: #173c36;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #64796e;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.heading h1 {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.heading p,
+.cardHeading p {
+  margin-top: 7px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #64796e;
+}
+
+.card,
+.profileCard,
+.notice,
+.errorCard {
+  background: #fff;
+  border: 1px solid #e2e8e4;
+  border-radius: 7px;
+  min-width: 0;
+}
+
+.profileCard {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 25px;
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: #e8f0eb;
+  color: #173c36;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.identity {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.identity h2 {
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.identity p {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #64796e;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.role,
+.active,
+.inactive {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.role {
+  border: 1px solid #dfe7e1;
+  background: #f5f7f5;
+}
+
+.active {
+  background: #e7f3eb;
+  color: #246e46;
+}
+
+.inactive {
+  background: #fceae7;
+  color: #a32e25;
+}
+
+.active i,
+.inactive i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.notice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  background: #f0f6f2;
+  padding: 20px;
+}
+
+.notice strong {
+  font-size: 14px;
+}
+
+.notice p {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #64796e;
+}
+
+.cardHeading {
+  padding: 20px;
+  border-bottom: 1px solid #edf1ed;
+}
+
+.cardHeading h2 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.information {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 20px;
+  border-bottom: 1px solid #edf1ed;
+  min-width: 0;
+}
+
+.field dt {
+  font-size: 12px;
+  color: #64796e;
+}
+
+.field dd {
+  font-size: 14px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.actions {
+  padding: 0 20px;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 0;
+  border-bottom: 1px solid #edf1ed;
+  font-size: 13px;
+}
+
+.action:last-child {
+  border-bottom: 0;
+}
+
+.action small {
+  font-size: 11px;
+  color: #64796e;
+  white-space: nowrap;
+}
+
+.button,
+.primary {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40px;
+  padding: 10px 15px;
+  border: 1px solid #dfe7e1;
+  border-radius: 5px;
+  background: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.button:hover {
+  background: #edf3ef;
+}
+
+.primary {
+  background: #173c36;
+  color: #fff;
+  border-color: #173c36;
+}
+
+.primary:hover {
+  background: #23584e;
+}
+
+.errorCard {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.errorCard h1 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.errorCard p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #64796e;
+  margin: 15px 0;
+}
+
+.noticeActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+  .information {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .profileCard {
+    padding: 18px;
+    gap: 14px;
+  }
+
+  .avatar {
+    flex-basis: 50px;
+    height: 50px;
+    font-size: 18px;
+  }
+
+  .identity h2 {
+    font-size: 17px;
+  }
+
+  .heading h1 {
+    font-size: 21px;
+  }
+
+  .field {
+    padding: 16px;
+  }
+}

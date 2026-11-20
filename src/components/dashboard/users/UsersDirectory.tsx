@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import {
   useEffect,
   useState,
@@ -463,6 +465,7 @@ export default function UsersDirectory() {
                       <th scope="col">Role</th>
                       <th scope="col">Status</th>
                       <th scope="col">Registered</th>
+                      <th scope="col">Action</th>
                     </tr>
                   </thead>
 
@@ -516,6 +519,15 @@ export default function UsersDirectory() {
 
                         <td>
                           {formatDate(user.created_at)}
+                        </td>
+                        <td>
+                          <Link
+                            href={`/dashboard/users/${user.id}`}
+                            aria-label={`View details for user ${user.id}`}
+                            className={styles.secondary}
+                          >
+                            View Details
+                          </Link>
                         </td>
                       </tr>
                     ))}
