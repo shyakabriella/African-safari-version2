@@ -21,6 +21,8 @@ import type {
   AccountRole,
 } from "@/lib/auth/roles";
 
+import UsersDirectory from "./UsersDirectory";
+
 import styles from "./Users.module.css";
 
 const roles: {
@@ -360,25 +362,7 @@ export default function UsersOverview({
 
       </div>
 
-      <section className={styles.panel}>
-        <div className={styles.panelHeading}>
-          <h2>Users Directory</h2>
-          <p>
-            Search, view and manage individual accounts.
-          </p>
-        </div>
-
-        <div className={styles.directoryNotice}>
-          <DashboardIcon name="users" />
-
-          <strong>User directory integration pending</strong>
-
-          <p>
-            Search, filters, account details and staff
-            management will be connected in the next stages.
-          </p>
-        </div>
-      </section>
+      <UsersDirectory />
 
     </div>
   );
