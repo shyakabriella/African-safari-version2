@@ -235,3 +235,47 @@
     transform: none;
   }
 }
+
+/* Safari operator partnership registration */
+.partnerButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 22px;
+  padding: 13px 20px;
+  border: 1px solid #d6a75e;
+  border-radius: 999px;
+  background: #d6a75e;
+  color: #172c25;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.partnerButton:hover {
+  background: #f0c47f;
+  border-color: #f0c47f;
+  color: #172c25;
+  transform: translateY(-2px);
+}
+
+.partnerButton:focus-visible {
+  outline: 2px solid #f0c47f;
+  outline-offset: 4px;
+}
+
+@media (max-width: 480px) {
+  .partnerButton {
+    width: 100%;
+    padding: 12px 16px;
+  }
+}

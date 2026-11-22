@@ -102,6 +102,14 @@ export default function Footer() {
               ))}
             </nav>
 
+            <Link
+              href="/register?role=vendor"
+              className={styles.partnerButton}
+            >
+              <span aria-hidden="true">＋</span>
+              Become a Partner
+            </Link>
+
             <div className={styles.message}>
               <span className={styles.smallTitle}>
                 YOUR JOURNEY BEGINS HERE

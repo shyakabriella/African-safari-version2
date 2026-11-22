@@ -28,13 +28,6 @@ export default function MainHeader() {
         <div className={styles.actions}>
           <Link href="/safaris">Explore</Link>
           <Link href="/login">Sign In</Link>
-          <Link
-            href="/register?role=vendor"
-            className={styles.listSafariButton}
-          >
-            <span aria-hidden="true">＋</span>
-            List Your Safari
-          </Link>
           <Link href="/plan-my-safari" className={styles.cta}>
             Start Planning <span aria-hidden="true">↗</span>
           </Link>
