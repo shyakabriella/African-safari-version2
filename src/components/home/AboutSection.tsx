@@ -32,9 +32,17 @@ export default function AboutSection() {
     if (!section) return;
 
     if (!("IntersectionObserver" in window)) {
-      setVisible(true);
-      setEntered(true);
-      return;
+      let cancelled = false;
+
+      queueMicrotask(() => {
+        if (cancelled) return;
+        setVisible(true);
+        setEntered(true);
+      });
+
+      return () => {
+        cancelled = true;
+      };
     }
 
     const observer = new IntersectionObserver(

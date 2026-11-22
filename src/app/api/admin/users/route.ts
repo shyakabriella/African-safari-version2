@@ -1,3 +1,4 @@
+
 import { NextRequest } from "next/server";
 
 import {
@@ -26,4 +27,15 @@ export async function GET(
     success: true,
     data: result.data,
   });
+}
+
+
+// Agent creation must use the invitation workflow.
+// Never accept administrator-selected agent passwords.
+export async function POST() {
+  return reply({
+    success: false,
+    message:
+      "Direct agent creation is disabled. Use the agent invitation workflow.",
+  }, 405);
 }

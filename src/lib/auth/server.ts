@@ -37,7 +37,7 @@ export async function backendAuth(
     | "login/verify-otp"
     | "register"
     | "password/forgot"
-    | "password/reset",
+    | "password/reset" | "agent/invitations/accept",
   payload: Record<string, string>
 ) {
   return fetch(`${API}/${endpoint}`, {

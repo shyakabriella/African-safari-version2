@@ -75,8 +75,17 @@ export default function DestinationGallery() {
     if (!section) return;
 
     if (!("IntersectionObserver" in window)) {
-      setEntered(true);
-      return;
+      let cancelled = false;
+
+      queueMicrotask(() => {
+        if (!cancelled) {
+          setEntered(true);
+        }
+      });
+
+      return () => {
+        cancelled = true;
+      };
     }
 
     const observer = new IntersectionObserver(

@@ -88,24 +88,34 @@ export default function PopularSafariTours() {
     useState<SafariTour | null>(null);
 
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem("afhbh-safari-favorites");
+    let cancelled = false;
 
-      if (saved) {
-        const parsed: unknown = JSON.parse(saved);
+    queueMicrotask(() => {
+      if (cancelled) return;
 
-        if (Array.isArray(parsed)) {
-          setFavorites(
-            parsed.filter(
-              (value): value is number =>
-                typeof value === "number"
-            )
-          );
+        try {
+          const saved = localStorage.getItem("afhbh-safari-favorites");
+
+          if (saved) {
+            const parsed: unknown = JSON.parse(saved);
+
+            if (Array.isArray(parsed)) {
+              setFavorites(
+                parsed.filter(
+                  (value): value is number =>
+                    typeof value === "number"
+                )
+              );
+            }
+          }
+        } catch {
+          // Favorites are optional when storage is unavailable.
         }
-      }
-    } catch {
-      // Favorites are optional when storage is unavailable.
-    }
+    });
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   useEffect(() => {
@@ -114,8 +124,17 @@ export default function PopularSafariTours() {
     if (!section) return;
 
     if (!("IntersectionObserver" in window)) {
-      setEntered(true);
-      return;
+      let cancelled = false;
+
+      queueMicrotask(() => {
+        if (!cancelled) {
+          setEntered(true);
+        }
+      });
+
+      return () => {
+        cancelled = true;
+      };
     }
 
     const observer = new IntersectionObserver(

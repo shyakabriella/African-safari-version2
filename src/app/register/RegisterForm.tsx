@@ -28,9 +28,13 @@ const initialValues: FormValues = {
   password_confirmation: "",
 };
 
-export default function RegisterForm() {
+export default function RegisterForm({
+  initialRole = "customer",
+}: {
+  initialRole?: AccountRole;
+}) {
   const [values, setValues] = useState(initialValues);
-  const [role, setRole] = useState<AccountRole>("customer");
+  const [role, setRole] = useState<AccountRole>(initialRole);
   const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -254,10 +258,16 @@ export default function RegisterForm() {
                   YOUR AFRICAN ADVENTURE
                 </span>
 
-                <h2>Create Account</h2>
+                <h2>
+                  {role === "vendor"
+                    ? "Register Your Safari Business"
+                    : "Create Account"}
+                </h2>
 
                 <p className={styles.description}>
-                  Choose your account type and join us.
+                  {role === "vendor"
+                    ? "Create a business account to begin your safari operator registration."
+                    : "Choose your account type and join us."}
                 </p>
 
                 <form
@@ -326,9 +336,10 @@ export default function RegisterForm() {
 
                   {role === "vendor" && (
                     <p className={styles.vendorNotice}>
-                      Business accounts must complete
-                      marketplace verification before publishing
-                      services.
+                      First, create your business account.
+                      After signing in, complete your company
+                      profile and verification before publishing
+                      safari tours.
                     </p>
                   )}
 

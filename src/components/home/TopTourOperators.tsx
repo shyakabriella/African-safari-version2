@@ -59,26 +59,36 @@ export default function TopTourOperators() {
   const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem(
-        "afhbh-operator-favorites"
-      );
+    let cancelled = false;
 
-      if (saved) {
-        const parsed: unknown = JSON.parse(saved);
+    queueMicrotask(() => {
+      if (cancelled) return;
 
-        if (Array.isArray(parsed)) {
-          setFavorites(
-            parsed.filter(
-              (value): value is number =>
-                typeof value === "number"
-            )
+        try {
+          const saved = localStorage.getItem(
+            "afhbh-operator-favorites"
           );
+
+          if (saved) {
+            const parsed: unknown = JSON.parse(saved);
+
+            if (Array.isArray(parsed)) {
+              setFavorites(
+                parsed.filter(
+                  (value): value is number =>
+                    typeof value === "number"
+                )
+              );
+            }
+          }
+        } catch {
+          // Storage may be unavailable.
         }
-      }
-    } catch {
-      // Storage may be unavailable.
-    }
+    });
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   useEffect(() => {
@@ -87,8 +97,17 @@ export default function TopTourOperators() {
     if (!section) return;
 
     if (!("IntersectionObserver" in window)) {
-      setEntered(true);
-      return;
+      let cancelled = false;
+
+      queueMicrotask(() => {
+        if (!cancelled) {
+          setEntered(true);
+        }
+      });
+
+      return () => {
+        cancelled = true;
+      };
     }
 
     const observer = new IntersectionObserver(

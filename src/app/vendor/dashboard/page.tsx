@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
-import RoleWorkspace from
-  "@/components/auth/RoleWorkspace";
+import VendorDashboard from
+  "@/components/vendor/VendorDashboard";
 
 export const metadata: Metadata = {
   title: "Tour Operator Dashboard",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <Suspense fallback={<p>Verifying account...</p>}>
-      <RoleWorkspace role="vendor" />
+      <VendorDashboard />
     </Suspense>
   );
 }

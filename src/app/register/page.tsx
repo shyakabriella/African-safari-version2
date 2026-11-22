@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import RegisterForm from "./RegisterForm";
 
 export const metadata: Metadata = {
@@ -11,6 +12,29 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RegisterPage() {
-  return <RegisterForm />;
+type RegisterPageProps = {
+  searchParams: Promise<{
+    role?: string | string[];
+  }>;
+};
+
+async function RegistrationContent({
+  searchParams,
+}: RegisterPageProps) {
+  const params = await searchParams;
+
+  const initialRole =
+    params.role === "vendor" ? "vendor" : "customer";
+
+  return <RegisterForm initialRole={initialRole} />;
+}
+
+export default function RegisterPage(
+  props: RegisterPageProps
+) {
+  return (
+    <Suspense fallback={<p>Loading registration...</p>}>
+      <RegistrationContent {...props} />
+    </Suspense>
+  );
 }

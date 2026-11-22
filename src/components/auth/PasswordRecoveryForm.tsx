@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import {
   useEffect,
+  useRef,
   useState,
   type FormEvent,
 } from "react";
@@ -24,6 +25,11 @@ export default function PasswordRecoveryForm({
   const [email, setEmail] = useState("");
   const [token, setToken] = useState("");
 
+  const recoveryRef = useRef<{
+    email: string;
+    token: string;
+  } | null>(null);
+
   const [password, setPassword] = useState("");
   const [confirmation, setConfirmation] = useState("");
 
@@ -38,27 +44,39 @@ export default function PasswordRecoveryForm({
   useEffect(() => {
     if (!isReset) return;
 
-    const url = new URL(window.location.href);
+    if (!recoveryRef.current) {
+      const url = new URL(window.location.href);
 
-    const resetEmail = (
-      url.searchParams.get("email") || ""
-    ).trim().toLowerCase();
+      recoveryRef.current = {
+        email: (
+          url.searchParams.get("email") || ""
+        ).trim().toLowerCase(),
+        token: (
+          url.searchParams.get("token") || ""
+        ).trim(),
+      };
 
-    const resetToken = (
-      url.searchParams.get("token") || ""
-    ).trim();
+      // Remove recovery credentials from the visible URL.
+      window.history.replaceState(
+        window.history.state,
+        "",
+        window.location.pathname,
+      );
+    }
 
-    setEmail(resetEmail);
-    setToken(resetToken);
+    let active = true;
 
-    // Remove recovery credentials from the visible URL.
-    window.history.replaceState(
-      window.history.state,
-      "",
-      window.location.pathname
-    );
+    queueMicrotask(() => {
+      if (!active || !recoveryRef.current) return;
 
-    setReady(true);
+      setEmail(recoveryRef.current.email);
+      setToken(recoveryRef.current.token);
+      setReady(true);
+    });
+
+    return () => {
+      active = false;
+    };
   }, [isReset]);
 
   const invalidLink = isReset && (

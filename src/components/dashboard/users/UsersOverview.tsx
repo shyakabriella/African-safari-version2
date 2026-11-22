@@ -21,7 +21,7 @@ import type {
   AccountRole,
 } from "@/lib/auth/roles";
 
-import UsersDirectory from "./UsersDirectory";
+import AgentCreationSection from "./AgentCreationSection";
 
 import styles from "./Users.module.css";
 
@@ -362,7 +362,7 @@ export default function UsersOverview({
 
       </div>
 
-      <UsersDirectory />
+      <AgentCreationSection />
 
     </div>
   );

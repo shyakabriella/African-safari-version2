@@ -1,0 +1,103 @@
+.picker {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  grid-column: 1 / -1;
+  padding: 17px;
+  border: 1px solid #dce9e2;
+  border-radius: 12px;
+  background: #f7fbf8;
+}
+
+.fieldLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #335b4b;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.input {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #d9e5df;
+  border-radius: 9px;
+  background: #fff;
+  color: #233d33;
+  font: inherit;
+  font-weight: 400;
+}
+
+.input:focus {
+  outline: 2px solid #86baa4;
+  outline-offset: 1px;
+}
+
+.input:disabled {
+  background: #edf1ee;
+}
+
+.footer,
+.hint,
+.error,
+.info {
+  grid-column: 1 / -1;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: #537264;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pagination button,
+.error button {
+  padding: 8px 11px;
+  border: 1px solid #cbded3;
+  border-radius: 8px;
+  background: #fff;
+  color: #20684d;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.hint {
+  color: #70817a;
+}
+
+.info {
+  color: #795d30;
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #a32935;
+}
+
+@media (max-width: 700px) {
+  .picker {
+    grid-template-columns: 1fr;
+  }
+}

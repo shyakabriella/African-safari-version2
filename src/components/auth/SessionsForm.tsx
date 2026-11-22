@@ -144,7 +144,11 @@ export default function SessionsForm({
   useEffect(() => {
     const controller = new AbortController();
 
-    void load(controller.signal);
+    queueMicrotask(() => {
+      if (!controller.signal.aborted) {
+        void load(controller.signal);
+      }
+    });
 
     const timer = window.setInterval(
       () => setNow(Date.now()),

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ResendAgentInvitation from "./ResendAgentInvitation";
 
 import type {
   DirectoryUser,
@@ -169,6 +170,10 @@ export default function UserDetails({
           </div>
         </div>
       </section>
+
+      {user.role === "agent" && !user.is_active && (
+        <ResendAgentInvitation userId={user.id} />
+      )}
 
       {ownAccount && (
         <section className={styles.notice}>

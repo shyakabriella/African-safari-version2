@@ -1,6 +1,10 @@
 import type { ReactNode } from "react";
 
 import { Suspense } from "react";
+
+// Authentication must be verified for each request.
+// Protected dashboard navigation may wait for verification.
+export const instant = false;
 import { redirect } from "next/navigation";
 
 import DashboardLayout from
