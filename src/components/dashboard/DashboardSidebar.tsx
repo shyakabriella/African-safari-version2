@@ -132,6 +132,7 @@ export default function DashboardSidebar({
                 item.href !== "/dashboard" &&
                 item.href !== "/dashboard/profile" &&
                 item.href !== "/dashboard/users" &&
+                item.href !== "/dashboard/verification" &&
                 item.href !== "/dashboard/tours"
               ) {
                 return (
