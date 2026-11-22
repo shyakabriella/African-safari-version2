@@ -262,7 +262,12 @@ async function fetchAdminCatalog(
   token: string,
   page = 1,
 ): Promise<unknown> {
-  const url = new URL(`${BASE}/${endpoint}`);
+  const path =
+    endpoint === "tours"
+      ? "admin/tours"
+      : "tour-schedules";
+
+  const url = new URL(`${BASE}/${path}`);
 
   url.searchParams.set("page", String(page));
 
